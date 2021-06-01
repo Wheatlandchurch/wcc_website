@@ -13,4 +13,7 @@ RUN apt update && \
 
 # Replace php.ini
 # COPY php.ini /usr/local/etc/php
-COPY * *
+COPY * /var/www/html/*
+COPY wp-admin/ /var/www/html/wp-admin/
+COPY wp-content /var/www/html/wp-content/
+COPY wp-includes/ /var/www/html/wp-includes/
