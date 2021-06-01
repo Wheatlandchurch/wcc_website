@@ -33,7 +33,7 @@ stages:
       displayName: Build and push an image to container registry
       inputs:
         command: buildAndPush
-        repository: 'wcc-wordpress'
+        repository: 'wccwordpress.azurecr.io/wcc-wordpress'
         dockerfile: $(dockerfilePath)
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
