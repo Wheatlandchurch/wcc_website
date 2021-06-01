@@ -11,7 +11,7 @@ resources:
 variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '6992c75f-c9fd-4ba1-a735-86487192e3fb'
-  imageRepository: 'wheatlandchurchwccwebsite'
+  imageRepository: 'wcc-wordpress'
   containerRegistry: 'wccwordpress.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
@@ -33,7 +33,7 @@ stages:
       displayName: Build and push an image to container registry
       inputs:
         command: buildAndPush
-        repository: 'wccwordpress.azurecr.io/wcc-wordpress'
+        repository: 'wcc-wordpress'
         dockerfile: $(dockerfilePath)
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
