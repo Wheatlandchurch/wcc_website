@@ -9,11 +9,12 @@ RUN apt update && \
     apt autoremove && \
     apt install -y \
     vim \
-    wget 
+    wget
 
-# Replace php.ini
-# COPY php.ini /usr/local/etc/php
-COPY * /var/www/html/*
+COPY *.php /var/www/html/
+COPY .htaccess /var/www/html/
+COPY web.config /var/www/html/
 COPY wp-admin/ /var/www/html/wp-admin/
-COPY wp-content /var/www/html/wp-content/
 COPY wp-includes/ /var/www/html/wp-includes/
+RUN rm -rf /var/www/html/wp-content
+RUN chown www-data:www-data *
