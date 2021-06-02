@@ -1,7 +1,6 @@
 <?php
-if (!empty($_SERVER['HTTP_X_FORWARDED_HOST']))
-{
-$_SERVER['HTTP_HOST']=$_SERVER['HTTP_X_FORWARDED_HOST'];
+if ( ! empty( $_SERVER[‘HTTP_X_FORWARDED_HOST’] ) ) {
+$_SERVER[‘HTTP_HOST’] = $_SERVER[‘HTTP_X_FORWARDED_HOST’];
 }
 
 /**
