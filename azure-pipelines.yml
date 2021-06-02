@@ -14,7 +14,9 @@ variables:
   imageRepository: 'wcc-wordpress'
   containerRegistry: 'wccwordpress.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-  tag: '$(Build.BuildId)'
+  tag: |
+    '$(Build.BuildId)'
+    'latest'
 
   # Agent VM image name
   vmimagename:  'windows'
@@ -38,3 +40,4 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           'latest'
+          '$(Build.BuildId)'
