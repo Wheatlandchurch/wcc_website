@@ -1,22 +1,17 @@
 # Docker
 # Build and push an image to Azure Container Registry
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
-
 trigger:
 - main
-
 resources:
 - repo: self
-
 variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '6992c75f-c9fd-4ba1-a735-86487192e3fb'
   imageRepository: 'wcc-wordpress'
   containerRegistry: 'wccwordpress.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-  tag: |
-    '$(Build.BuildId)'
-    'latest'
+  tag: '$(Build.BuildId)'
 
   # Agent VM image name
   vmimagename:  'windows'
@@ -24,6 +19,7 @@ variables:
 stages:
 - stage: Build
   displayName: Build and push stage
+  
   jobs:
   - job: Build
     displayName: Build
@@ -35,9 +31,9 @@ stages:
       displayName: Build and push an image to container registry
       inputs:
         command: buildAndPush
-        repository: '$(imageRepository)'
+        repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
-        containerRegistry: '$(containerRegistry)'
+        containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
-          'latest'
-          '$(Build.BuildId)'
+          latest
+          $(tag)
