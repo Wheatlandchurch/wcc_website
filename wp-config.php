@@ -1,8 +1,11 @@
 <?php
 
-if ( ! empty( $_SERVER[‘HTTP_X_FORWARDED_HOST’] ) ) {
-$_SERVER[‘HTTP_HOST’] = $_SERVER[‘HTTP_X_FORWARDED_HOST’];
+if ( ! empty( $_SERVER['HTTP_X_FORWARDED_HOST'] ) ) {
+$_SERVER['HTTP_HOST'] = $_SERVER['HTTP_X_FORWARDED_HOST'];
 }
+
+if (strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false)
+$_SERVER['HTTPS']='on';
 
 define('WP_HOME', 'https://'. filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
 define('WP_SITEURL', 'https://'. filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
