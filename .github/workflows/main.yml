@@ -25,9 +25,9 @@ jobs:
     steps:
     
     - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - run: echo "CHANGED_FILES=$(git diff --name-only ${{ github.event.before }}..${{ github.event.after }})" >> $GITHUB_ENV
+      with:
+        fetch-depth: 0
+    - run: echo "CHANGED_FILES=$(git diff --name-only ${{ github.event.before }}..${{ github.event.after }})" >> $GITHUB_ENV
       
     - name: Azure File Upload
       uses: rnakamine/azure-files-upload@v1.0.0
