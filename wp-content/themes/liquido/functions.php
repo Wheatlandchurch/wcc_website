@@ -6,7 +6,7 @@
 * www.cryoutcreations.eu
 *
 *****************************/
-
+remove_filter('template_redirect','redirect_canonical');
 /**
  * Load additional theme files
  */
