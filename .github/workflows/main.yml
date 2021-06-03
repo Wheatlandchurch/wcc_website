@@ -24,9 +24,11 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     
-    - name: Checkout
-      uses: actions/checkout@v2
-      
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+    - run: git checkout 'git ls-files -m'
+    
     - name: Azure File Upload
       uses: rnakamine/azure-files-upload@v1.0.0
       with:
