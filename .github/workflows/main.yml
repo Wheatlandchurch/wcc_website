@@ -25,10 +25,7 @@ jobs:
     steps:
     
     - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-        path: all
-    - run: 'git checkout -- $(git status | grep modified: | cut -c14-)'
+      name: Checkout
       
     - name: Azure File Upload
       uses: rnakamine/azure-files-upload@v1.0.0
