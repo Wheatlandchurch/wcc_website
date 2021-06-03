@@ -24,8 +24,11 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     
-    - run: git checkout -- $(git status | grep modified: | cut -c14-)
-    
+    - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - run: echo "CHANGED_FILES=$(git diff --name-only ${{ github.event.before }}..${{ github.event.after }})" >> $GITHUB_ENV
+      
     - name: Azure File Upload
       uses: rnakamine/azure-files-upload@v1.0.0
       with:
