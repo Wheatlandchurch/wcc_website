@@ -25,7 +25,7 @@ jobs:
     steps:
     
     - name: Checkout
-      uses: actions/checkout@v1
+      uses: actions/checkout@v2
       
     - name: Azure File Upload
       uses: rnakamine/azure-files-upload@v1.0.0
