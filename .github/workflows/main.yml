@@ -24,7 +24,10 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     
-
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+        path: all
     - run: git checkout -- $(git diff --name-only ${{ github.event.before }}..${{ github.event.after }})
       
     - name: Azure File Upload
