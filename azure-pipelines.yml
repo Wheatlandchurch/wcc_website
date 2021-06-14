@@ -24,7 +24,7 @@ stages:
   - job: Build
     displayName: Build
     pool:
-      name: Default
+      name: Azure Pipelines
       vmImage: $(vmImageName)
     steps:
     - task: Docker@2
