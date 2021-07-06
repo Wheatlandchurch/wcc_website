@@ -17,6 +17,15 @@
 	cryout_header_hook();
 	wp_head();
 ?>
+<?php
+if ($_SERVER['REQUEST_URI'] == '/') { 
+    echo "<!-- Global site tag (gtag.js) - Google Ads: 951245174 --> ";
+    echo "<script async src='https://www.googletagmanager.com/gtag/js?id=AW-951245174'></script> ";
+    echo "<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-951245174'); </script> ";
+    echo "<!-- Event snippet for Visit Homepage conversion page --> ";
+    echo "<script> gtag('event', 'conversion', {'send_to': 'AW-951245174/QedhCM6KgqMCEPayy8UD'}); </script> ";
+}
+?>
 </head>
 
 <body <?php body_class(); cryout_schema_microdata( 'body' );?>>
