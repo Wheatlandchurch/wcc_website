@@ -1,2 +1,2 @@
 # wcc_website
-wcc wordpress code
+wcc wordpress codebase
