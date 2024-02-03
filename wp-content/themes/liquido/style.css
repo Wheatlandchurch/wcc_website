@@ -15,6 +15,10 @@ Liquido WordPress Theme - Copyright 2019, Cryout Creations - http://www.cryoutcr
 This theme, like WordPress, is licensed under the GPL.
 */
 
+/* Hide reCAPTCHA */	
+.grecaptcha-badge { visibility: hidden; }
+
+
 /* HEADER */
 .fluida-menu-animation #site-header-main.header-fixed,
 .fluida-menu-animation #site-header-main.header-fixed .menu-search-animated,
